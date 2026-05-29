@@ -21,6 +21,7 @@ public class HeapRunner {
         Scanner scanner = new Scanner(System.in);
         // TODO: Construct your Heap here.
         Heap heap = new Heap();
+
         
         System.out.println("=== Heap Tester ===");
 
@@ -47,29 +48,35 @@ public class HeapRunner {
                     } else if (choice.equals("p") || choice.equals("pop")) {
                 // TODO: Call your "pop" method and print the result.
                 // Properly handle the case of an empty heap!
-
-                  if (heap.isEmpty()) {
-               System.out.println("Heap is empty. Nothing to pop.");
-                    } else {
-                int removed = heap.pop();
-                    System.out.println("Removed: " + removed);
-                    }
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty");
+                } else {
+                    int poppedVal = heap.pop();
+                    System.out.println("Popped value: " + poppedVal);
+                }
                     
                     } else if (choice.equals("k") || choice.equals("peek")) {
                 // TODO: Call your "peek" method and print the result
                 // Properly handle the case of an empty heap!
                     if (heap.isEmpty()) {
-                        System.out.println("Heap is empty. Nothing to peek");
+                        System.out.println("Heap is empty");
                     } else {
-                        int front = heap.peek();
-                        System.out.println("Front of heap: " + front);
+                        int root = heap.peek();
+                        System.out.println("Root of the heap: " + root);
                     }
 
             } else if (choice.equals("s") || choice.equals("size")) {
                 // TODO: Call your "size" method and print the result
+                int size = heap.size();
+                System.out.println("Heap size: " + size);
 
             } else if (choice.equals("e") || choice.equals("empty")) {
                 // TODO: Call your "isEmpty" method and print the result
+                if (heap.isEmpty()) {
+                    System.out.println("Heap is empty");
+                } else {
+                    System.out.println("Heap is not empty");
+                }
 
             } else if (choice.equals("q") || choice.equals("quit")) {
                 break;
