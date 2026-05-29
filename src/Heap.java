@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * A min-heap. 
  * 
@@ -22,5 +23,45 @@
  *  - hold private instance variables
  */
 public class Heap {
+      private ArrayList<Integer> heap;
+
+       public Heap() {
+        heap = new ArrayList<>();
+    }
+     public int size() {
+        return heap.size();
+    }
+      public boolean isEmpty() {
+        return heap.isEmpty();
+    }
+   public int peek() {
+        if (heap.isEmpty()) {
+            throw new IllegalStateException("Heap is empty");
+        }
+        return heap.get(0);
+    }
+
+     public void add(int value) {
+        heap.add(value);
+        heapUp(heap.size() - 1);
+    }
+    
+     public int pop() {
+        if (heap.isEmpty()) {
+            throw new IllegalStateException("Heap is empty");
+        }
+
+        int root = heap.get(0);
+
+        int last = heap.remove(heap.size() - 1);
+
+        if (!heap.isEmpty()) {
+            heap.set(0, last);
+            heapDown(0);
+        }
+
+        return root;
+    }
+
 
 }
