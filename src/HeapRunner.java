@@ -15,7 +15,7 @@ import java.util.Scanner;
  * code to construct your Heap or call one of its methods. The method names
  * and return types are up to you based on your design decisions.
  */
-public class HeapRunner {
+public class HeapRunner { 
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
