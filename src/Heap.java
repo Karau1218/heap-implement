@@ -104,5 +104,10 @@ public class Heap {
             }
         }
     }
+            private void swap(int i, int j) {
+            int temp = heap.get(i);
+            heap.set(i, heap.get(j));
+            heap.set(j, temp);
+}
 
 }
