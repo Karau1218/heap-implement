@@ -28,24 +28,27 @@ public class Heap {
        public Heap() {
         heap = new ArrayList<>();
     }
+      // O(1)
      public int size() {
         return heap.size();
     }
+      // O(1)
       public boolean isEmpty() {
         return heap.isEmpty();
     }
+      // O(1)
    public int peek() {
         if (heap.isEmpty()) {
             throw new IllegalStateException("Heap is empty");
         }
         return heap.get(0);
     }
-
+        // O(log n)
      public void add(int value) {
         heap.add(value);
         heapUp(heap.size() - 1);
     }
-    
+        // O(log n)
      public int pop() {
         if (heap.isEmpty()) {
             throw new IllegalStateException("Heap is empty");
@@ -63,5 +66,43 @@ public class Heap {
         return root;
     }
 
+    // HELPERS
+       private void heapUp(int index) {
+        while (index > 0) {
+            int parent = (index - 1) / 2;
+
+            if (heap.get(index) < heap.get(parent)) {
+                swap(index, parent);
+                index = parent;
+            } else {
+                break;
+            }
+        }
+    }
+
+    private void heapDown(int index) {
+        int size = heap.size();
+
+        while (true) {
+            int left = 2 * index + 1;
+            int right = 2 * index + 2;
+            int smallest = index;
+
+            if (left < size && heap.get(left) < heap.get(smallest)) {
+                smallest = left;
+            }
+
+            if (right < size && heap.get(right) < heap.get(smallest)) {
+                smallest = right;
+            }
+
+            if (smallest != index) {
+                swap(index, smallest);
+                index = smallest;
+            } else {
+                break;
+            }
+        }
+    }
 
 }
